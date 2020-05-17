@@ -22,6 +22,7 @@ export class QueryParamsDemoComponent {
     'rating',
     'metacritic',
     'released',
+    'playtime',
   ];
 
   @ViewChild(MatSort) sort: MatSort;
