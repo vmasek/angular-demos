@@ -19,6 +19,7 @@ export class QueryParamsDemoComponent {
   displayedColumns: string[] = [
     'image',
     'name',
+    'genres',
     'rating',
     'metacritic',
     'released',
