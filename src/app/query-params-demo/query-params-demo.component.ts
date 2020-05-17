@@ -16,7 +16,13 @@ const PAGE_SIZE = 20;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QueryParamsDemoComponent {
-  displayedColumns: string[] = ['image', 'name', 'rating', 'released'];
+  displayedColumns: string[] = [
+    'image',
+    'name',
+    'rating',
+    'metacritic',
+    'released',
+  ];
 
   @ViewChild(MatSort) sort: MatSort;
 
