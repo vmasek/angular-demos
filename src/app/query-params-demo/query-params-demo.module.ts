@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { CropImageModule } from '../pipes/crop-image/crop-image.module';
 import { QueryParamsDemoComponent } from './query-params-demo.component';
 import { QueryParamsDemoRoutingModule } from './query-params-demo.routing';
 
@@ -19,6 +20,7 @@ import { QueryParamsDemoRoutingModule } from './query-params-demo.routing';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    CropImageModule,
   ],
 })
 export class QueryParamsDemoModule {}
