@@ -51,7 +51,7 @@
     <ng-container matColumnDef="metacritic">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Metascore</th>
       <td mat-cell *matCellDef="let row">
-        <span
+        <div
           class="score-badge"
           *ngIf="row.metacritic | ratingColor as color"
           [ngStyle]="{
@@ -60,6 +60,8 @@
           }"
           >{{ row.metacritic }}</span
         >
+          {{ row.metacritic || '?' }}
+        </div>
       </td>
     </ng-container>
 
