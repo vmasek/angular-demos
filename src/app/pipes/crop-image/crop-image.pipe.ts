@@ -5,6 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CropImagePipe implements PipeTransform {
   transform(value: string, width: number = 600, height: number = 400): string {
-    return value.replace('/media/', `/media/crop/${width}/${height}/`);
+    return (
+      value?.replace('/media/', `/media/crop/${width}/${height}/`) ||
+      '/assets/placeholder.jpg'
+    );
   }
 }
