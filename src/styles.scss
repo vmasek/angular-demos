@@ -1,4 +1,5 @@
 /** WARNING: Do NOT import this file in any component style */
+@import 'variables';
 
 html,
 body {
@@ -7,8 +8,10 @@ body {
 
 body {
   line-height: 1;
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 16px;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: $app-background-color;
+  color: $app-text-color;
 }
 
 * {
