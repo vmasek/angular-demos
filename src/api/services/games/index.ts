@@ -43,7 +43,9 @@ export class GamesAPIClientModule {
    * @param { GamesAPIClientModuleConfig } config
    * @returns { ModuleWithProviders }
    */
-  static forRoot(config: GamesAPIClientModuleConfig = {}): ModuleWithProviders {
+  static forRoot(
+    config: GamesAPIClientModuleConfig = {},
+  ): ModuleWithProviders<GamesAPIClientModule> {
     return {
       ngModule: GamesAPIClientModule,
       providers: [
