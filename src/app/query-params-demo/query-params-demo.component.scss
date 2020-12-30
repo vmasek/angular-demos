@@ -1,5 +1,17 @@
+.view-options {
+  padding: 8rem;
+  margin-bottom: 16rem;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
 table {
   width: 100%;
+}
+
+.hidden {
+  display: none;
 }
 
 .image {

@@ -1,3 +1,26 @@
+<div class="view-options">
+  <a
+    mat-raised-button
+    routerLink="."
+    routerLinkActive="active mat-accent"
+    [routerLinkActiveOptions]="{ exact: true }"
+    [queryParams]="{ viewMode: 'compact' }"
+    queryParamsHandling="merge"
+  >
+    <mat-icon class="mat-24">view_headline</mat-icon>
+  </a>
+  <a
+    mat-raised-button
+    routerLink="."
+    routerLinkActive="active mat-accent"
+    [routerLinkActiveOptions]="{ exact: true }"
+    [queryParams]="{ viewMode: undefined }"
+    queryParamsHandling="merge"
+  >
+    <mat-icon class="mat-24">view_list</mat-icon>
+  </a>
+</div>
+
 <div class="mat-elevation-z8" *ngIf="games.metadata$ | async as metadata">
   <!--  we are using the observable of Games[] as data source for material table -->
   <mat-table
@@ -14,8 +37,12 @@
         *matHeaderCellDef
         mat-sort-header
         disabled
+        [class.hidden]="(viewMode$ | async) === 'compact'"
       ></mat-header-cell>
-      <mat-cell *matCellDef="let row">
+      <mat-cell
+        *matCellDef="let row"
+        [class.hidden]="(viewMode$ | async) === 'compact'"
+      >
         <img
           [src]="row.background_image | cropImage"
           alt="{{ row.name }} image"

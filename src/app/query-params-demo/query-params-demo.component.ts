@@ -4,7 +4,7 @@ import { PageEvent } from '@angular/material/paginator/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Sort } from '@angular/material/sort/sort';
 import { ActivatedRoute, Router } from '@angular/router';
-import { debounceTime, tap } from 'rxjs/operators';
+import { debounceTime, map, tap } from 'rxjs/operators';
 import { GameSingle } from '../../api/models';
 import { GamesService } from './games.service';
 
@@ -26,6 +26,8 @@ export class QueryParamsDemoComponent {
     'released',
     'playtime',
   ];
+
+  viewMode$ = this.route.queryParams.pipe(map(params => params.viewMode));
 
   @ViewChild(MatSort) sort: MatSort;
 
