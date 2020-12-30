@@ -9,6 +9,7 @@ const routes: Routes = [
         m => m.QueryParamsDemoModule,
       ),
   },
+  { path: '', pathMatch: 'full', redirectTo: 'query-demo' },
 ];
 
 @NgModule({

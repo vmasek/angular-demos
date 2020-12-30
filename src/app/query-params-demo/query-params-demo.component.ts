@@ -5,9 +5,10 @@ import { MatSort } from '@angular/material/sort';
 import { Sort } from '@angular/material/sort/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, tap } from 'rxjs/operators';
+import { GameSingle } from '../../api/models';
 import { GamesService } from './games.service';
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 10;
 
 @Component({
   selector: 'app-query-params-demo',
@@ -39,15 +40,21 @@ export class QueryParamsDemoComponent {
       .pipe(
         tap(params => console.log('route', params)),
         debounceTime(100),
-        tap(({ page, pageSize, ordering }) => {
+        tap(({ page, pageSize, ordering, genres }) => {
           this.games.fetchGames({
             pageSize: pageSize || PAGE_SIZE,
             page: page || 1,
+            ...(genres && { genres }),
             ...(ordering && { ordering }),
           });
         }),
       )
       .subscribe();
+  }
+
+  trackByFn(_: number, { slug, name }: GameSingle): string {
+    // tslint:disable-next-line:no-non-null-assertion
+    return slug || name!;
   }
 
   doSort({ active, direction }: Sort): void {

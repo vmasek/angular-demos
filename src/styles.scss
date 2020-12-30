@@ -6,6 +6,11 @@ body {
   height: 100%;
 }
 
+// fix for sort arrow not showing up when order set in code ( see: https://github.com/angular/components/issues/10242 )
+.mat-sort-header-container.mat-sort-header-sorted > .mat-sort-header-arrow {
+  opacity: 1 !important;
+}
+
 body {
   line-height: 1;
   margin: 0 16px;

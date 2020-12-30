@@ -11,6 +11,10 @@ table {
   font-size: 20px;
 }
 
+.genre {
+  margin: 2px;
+}
+
 .score-badge {
   border-radius: 4px;
   border: 1px solid;
@@ -44,6 +48,7 @@ table {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMTYgMTYnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTAgMTMuNzcybDYuNTQ1LjkwMlY4LjQyNkgwek0wIDcuNjJoNi41NDVWMS4yOTZMMCAyLjE5OHptNy4yNjUgNy4xNWw4LjcwNCAxLjJWOC40MjVINy4yNjV6bTAtMTMuNTd2Ni40Mmg4LjcwNFYweicgZmlsbD0nI0ZGRicvPjwvc3ZnPg==);
   }
 
+  &[class*='ps'],
   &[class*='playstation'] {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjEgMTYnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTExLjExMiAxNkw4IDE0LjY1NFYwczYuNzY0IDEuMTQ3IDcuNjk1IDMuOTg3Yy45MzEgMi44NDItLjUyIDQuNjgyLTEuMDMgNC43MzYtMS40Mi4xNS0xLjk2LS43NDgtMS45Ni0uNzQ4VjMuMzlsLTEuNTQ0LS42NDhMMTEuMTEyIDE2ek0xMiAxNC4zMlYxNnM3LjY2Ni0yLjMzOCA4Ljc5NC0zLjI0YzEuMTI4LS45LTIuNjQxLTMuMTQyLTQuNjY2LTIuNzA0IDAgMC0yLjE1Mi4wOTktNC4xMDIuOTAxLS4wMTkuMDA4IDAgMS41MSAwIDEuNTFsNC45NDgtMS4wOTUgMS43NDMuNzNMMTIgMTQuMzJ6bS01LjAyNC0uNzczcy0uOTQyLjQ3Ni0zLjA0MS40NTJjLTIuMS0uMDI0LTMuOTU5LS41OTUtMy45MzUtMS44MzNDLjAyNCAxMC45MjggMy40NzYgOS41NzEgNi45NTIgOXYxLjczOGwtMy42OTMuOTUycy0uNjMyLjc4Ni4yMTcuODFBMTEuOTM0IDExLjkzNCAwIDAwNyAxMi4wNDZsLS4wMjQgMS41eicgZmlsbD0nI0ZGRicvPjwvc3ZnPg==);
   }
@@ -61,6 +66,9 @@ table {
   }
 
   &[class*='nintendo'],
+  &[class*='wii'],
+  &[class*='nes'],
+  &[class*='gamecube'],
   &[class*='game-boy'] {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMSAxNic+PHBhdGggZmlsbD0nI0ZGRicgZmlsbC1ydWxlPSdldmVub2RkJyBkPSdNOCAwaDVhOCA4IDAgMTEwIDE2SDhBOCA4IDAgMTE4IDB6bS0uMTM1IDEuOTM1YTYuMDY1IDYuMDY1IDAgMDAwIDEyLjEzaDUuMTJhNi4wNjUgNi4wNjUgMCAwMDAtMTIuMTNoLTUuMTJ6bS0xLjMzIDIuMzA0aDIuNDAxbDMuMTk5IDUuMTc1VjQuMjRoMi4zNDZ2Ny40OTVIMTIuMThMOC44NjQgNi41Mzd2NS4yMDFINi41M2wuMDA1LTcuNDk5eicvPjwvc3ZnPg==);
   }
@@ -81,7 +89,24 @@ table {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMCAxNic+PHBhdGggZD0nTTExLjA0MiAxNlYwSDguNzV2MTZoMi4yOTJ6TTcuMTAyIDBoMS4yMzFjMCA3LjQxNy0uMTkgOS4yMjQtMS4zMjUgMTEuNDEyQzUuODcgMTMuNTk5IDIuNjk4IDE1Ljc2MiAwIDE2di0yLjQ0NWMyLjAzNi0uMzMzIDMuODgzLTEuNDMgNS40OTItMy44NTVDNy4xMDIgNy4yNzUgNy4xNSAxLjUyIDcuMTAyIDB6bTUuNzk2IDBoLTEuMjMxYzAgNy40MTcuMTkgOS4yMjQgMS4zMjUgMTEuNDEyQzE0LjEzIDEzLjU5OSAxNy4zMDIgMTUuNzYyIDIwIDE2di0yLjQ0NWMtMi4wMzYtLjMzMy0zLjg4My0xLjQzLTUuNDkyLTMuODU1LTEuNjEtMi40MjUtMS42NTgtOC4xNzktMS42MS05Ljd6JyBmaWxsPScjRkZGJy8+PC9zdmc+);
   }
 
-  &[class*='sega'] {
+  &[class*='sega'],
+  &[class*='dreamcast'] {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMyAxNic+PGcgZmlsbD0nI0ZGRic+PHBhdGggZD0nTTcuNDY4IDE1Ljk5M2MzLjA1NiAwIDUuNTMyLTIuMzM1IDUuNTMyLTUuMjEyIDAtMi44ODMtMi40NzYtNS4yMTgtNS41MzItNS4yMThsLTEuOTQuMDFhLjI3MS4yNzEgMCAwMS0uMjc2LS4yNjRjMC0uMTQ2LjEyNC0uMjY1LjI3Ny0uMjY1bDcuNDU0LjAwMS4wMDMtMi4yMTJINS41MjdjLTEuNDQyIDAtMi42MTUgMS4xMDgtMi42MTUgMi40NyAwIDEuMzYzIDEuMTczIDIuNDY2IDIuNjE1IDIuNDY2bDEuOTQ5LjAyNWMxLjc1IDAgMy4xNjcgMS4zMzUgMy4xNjcgMi45ODMgMCAxLjY0OC0xLjQxNiAyLjk4Ny0zLjE2NyAyLjk4N0guMDAzTDAgMTZsNy40NjgtLjAwN3onLz48cGF0aCBkPSdNLjAwNiAxMy4xNjdoNy4zOGMxLjQyOCAwIDIuNTgzLTEuMTA2IDIuNTgzLTIuNDcyIDAtMS4zNjQtMS4xNTUtMi40NjgtMi41ODQtMi40NjhsLTEuOTI0LS4wMmMtMS43MjYgMC0zLjEyNi0xLjM0LTMuMTI2LTIuOTkzIDAtMS42NSAxLjQtMi45ODkgMy4xMjYtMi45ODlsNy4zNjYtLjAwMUwxMi44MjQgMEg1LjQ2MkMyLjQ0OCAwIDAgMi4zMzYgMCA1LjIyYzAgMi44ODMgMi40NDggNS4yMiA1LjQ2MiA1LjIybDEuOTA1LjAwM2MuMTQ1IDAgLjI2Ny4xMTMuMjY3LjI1NyAwIC4xNC0uMTIyLjI1My0uMjY3LjI1M2wtNy4zNjQuMDA2LjAwMyAyLjIwOCcvPjwvZz48L3N2Zz4=);
   }
+}
+
+.mat-column-image {
+  min-width: 320px;
+}
+
+.mat-column-name {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-right: 8px;
+}
+
+.mat-column-genres {
+  display: flex;
+  flex-wrap: wrap;
 }

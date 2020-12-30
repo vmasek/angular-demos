@@ -1,27 +1,32 @@
 <div class="mat-elevation-z8" *ngIf="games.metadata$ | async as metadata">
   <!--  we are using the observable of Games[] as data source for material table -->
-  <table
-    mat-table
+  <mat-table
     [dataSource]="games.games$"
+    [trackBy]="trackByFn"
     matSort
     [matSortActive]="metadata.ordering?.replace('-', '')"
     [matSortDirection]="metadata.ordering?.startsWith('-') ? 'desc' : 'asc'"
     (matSortChange)="doSort($event)"
+    matSortDisableClear
   >
     <ng-container matColumnDef="image">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header disabled></th>
-      <td mat-cell *matCellDef="let row">
+      <mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        disabled
+      ></mat-header-cell>
+      <mat-cell *matCellDef="let row">
         <img
           [src]="row.background_image | cropImage"
           alt="{{ row.name }} image"
           class="image"
         />
-      </td>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row">
         <div class="title">{{ row.name }}</div>
         <div class="platforms">
           <span
@@ -31,26 +36,42 @@
             [title]="item.platform.name"
           ></span>
         </div>
-      </td>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="genres">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>Genres</th>
-      <td mat-cell *matCellDef="let row">
-        <span class="platform" *ngFor="let genre of row.genres; let last = last"
-          >{{ genre.name }}<ng-container *ngIf="!last">, </ng-container></span
+      <mat-header-cell *matHeaderCellDef mat-sort-header disabled
+        >Genres</mat-header-cell
+      >
+      <mat-cell *matCellDef="let row">
+        <a
+          class="genre"
+          *ngFor="let genre of row.genres"
+          mat-stroked-button
+          routerLink="."
+          routerLinkActive="active mat-accent"
+          [routerLinkActiveOptions]="{ exact: false }"
+          [queryParams]="{
+            genres: genre.id
+          }"
+          queryParamsHandling="merge"
+          >{{ genre.name }}</a
         >
-      </td>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="rating">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Rating</th>
-      <td mat-cell *matCellDef="let row">{{ row.rating }}</td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Rating</mat-header-cell
+      >
+      <mat-cell *matCellDef="let row">{{ row.rating }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="metacritic">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Metascore</th>
-      <td mat-cell *matCellDef="let row">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Metascore</mat-header-cell
+      >
+      <mat-cell *matCellDef="let row">
         <div
           class="score-badge"
           *ngIf="row.metacritic | ratingColor as color"
@@ -58,32 +79,35 @@
             color: color,
             borderColor: color
           }"
-          >{{ row.metacritic }}</span
         >
           {{ row.metacritic || '?' }}
         </div>
-      </td>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="released">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Released</th>
-      <td mat-cell *matCellDef="let row">{{ row.released | date }}</td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Released</mat-header-cell
+      >
+      <mat-cell *matCellDef="let row">{{ row.released | date }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="playtime">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Play time</th>
-      <td mat-cell *matCellDef="let row">~{{ row.playtime }} hours</td>
+      <mat-header-cell *matHeaderCellDef>Play time</mat-header-cell>
+      <mat-cell *matCellDef="let row">~{{ row.playtime }} hours</mat-cell>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+    <mat-header-row
+      *matHeaderRowDef="displayedColumns; sticky: true"
+    ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
 
   <mat-paginator
-    [pageIndex]="metadata.page"
+    [pageIndex]="metadata.page > 0 ? metadata.page - 1 : 0"
     [length]="metadata.total"
     [pageSize]="metadata.pageSize"
-    [pageSizeOptions]="[10, 20, 100]"
+    [pageSizeOptions]="[5, 10, 25, 50, 100]"
     (page)="changePage($event)"
   ></mat-paginator>
 </div>
