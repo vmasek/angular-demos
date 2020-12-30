@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-router-demos": {
+    "angular-demos": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -18,7 +18,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-router-demos",
+            "outputPath": "dist/angular-demos",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,11 +67,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-router-demos:build"
+            "browserTarget": "angular-demos:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-router-demos:build:production"
+              "browserTarget": "angular-demos:build:production"
             }
           }
         },
@@ -89,5 +89,5 @@
       }
     }
   },
-  "defaultProject": "angular-router-demos"
+  "defaultProject": "angular-demos"
 }
