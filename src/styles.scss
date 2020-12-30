@@ -3,7 +3,7 @@
 
 html,
 body {
-  height: 100%;
+  font-size: 0.0625vw; /* ~1px */
 }
 
 // fix for sort arrow not showing up when order set in code ( see: https://github.com/angular/components/issues/10242 )
@@ -13,13 +13,18 @@ body {
 
 body {
   line-height: 1;
-  margin: 0 16px;
+  margin: 0;
+  height: 100%;
+  overflow: scroll;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   background-color: $app-background-color;
   color: $app-text-color;
 }
 
-* {
+*,
+*::before,
+*::after {
+  border: 0;
   margin: 0;
   padding: 0;
   outline: none;
