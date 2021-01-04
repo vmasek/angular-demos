@@ -195,3 +195,9 @@ mat-cell {
 .mat-column-playtime {
   max-width: 80rem;
 }
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  border-top: 1rem solid white;
+}
