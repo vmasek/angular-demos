@@ -30,6 +30,36 @@ table {
   padding: 8rem;
 }
 
+.genre-cancel {
+  position: absolute;
+  z-index: 100;
+  font-size: 20rem;
+  height: 40rem;
+  width: 40rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+
+  color: white;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.genres-container {
+  position: relative;
+  overflow: visible;
+
+  &:hover {
+    .genre.active:not(:focus) ~ .genre-cancel {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s, opacity 0.2s linear;
+    }
+  }
+}
+
 .score-badge {
   border-radius: 4rem;
   border: 1rem solid;

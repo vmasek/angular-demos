@@ -71,19 +71,31 @@
         >Genres</mat-header-cell
       >
       <mat-cell *matCellDef="let row">
-        <a
-          class="genre"
-          *ngFor="let genre of row.genres"
-          mat-stroked-button
-          routerLink="."
-          routerLinkActive="active mat-accent"
-          [routerLinkActiveOptions]="{ exact: false }"
-          [queryParams]="{
-            genres: genre.id
-          }"
-          queryParamsHandling="merge"
-          >{{ genre.name }}</a
-        >
+        <div class="genres-container" *ngFor="let genre of row.genres">
+          <a
+            class="genre"
+            mat-stroked-button
+            routerLink="."
+            routerLinkActive="active mat-accent"
+            [routerLinkActiveOptions]="{ exact: false }"
+            [queryParams]="{
+              genres: genre.id
+            }"
+            queryParamsHandling="merge"
+            >{{ genre.name }}
+          </a>
+          <button
+            (click)="$event.stopPropagation(); $event.preventDefault()"
+            class="genre-cancel"
+            routerLink="."
+            [queryParams]="{
+              genres: undefined
+            }"
+            queryParamsHandling="merge"
+          >
+            ✕
+          </button>
+        </div>
       </mat-cell>
     </ng-container>
 
