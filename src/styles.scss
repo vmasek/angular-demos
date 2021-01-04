@@ -15,7 +15,7 @@ body {
   line-height: 1;
   margin: 0;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   background-color: $app-background-color;
   color: $app-text-color;
