@@ -23,7 +23,14 @@
 
 <div class="mat-elevation-z8" *ngIf="games.metadata$ | async as metadata">
   <!--  we are using the observable of Games[] as data source for material table -->
+  <mat-progress-spinner
+    class="loader"
+    *ngIf="metadata.loading"
+    mode="indeterminate"
+    color="accent"
+  ></mat-progress-spinner>
   <mat-table
+    [class.loading]="metadata.loading"
     [dataSource]="games.games$"
     [trackBy]="trackByFn"
     matSort

@@ -6,8 +6,19 @@
   z-index: 200;
 }
 
-table {
-  width: 100%;
+mat-cell {
+  transition: filter 0.2s;
+  .loading & {
+    filter: blur(3px);
+  }
+}
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
 }
 
 .hidden {
